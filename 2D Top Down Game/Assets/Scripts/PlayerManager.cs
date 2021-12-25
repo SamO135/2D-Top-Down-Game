@@ -109,7 +109,7 @@ public class PlayerManager : MonoBehaviour
     private IEnumerator Die()
     {
         yield return new WaitForSeconds(0.3f);
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene("GameScene");
     }
 
     private void FlipDamageCircle(int direction)
