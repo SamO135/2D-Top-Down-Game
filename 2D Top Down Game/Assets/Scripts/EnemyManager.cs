@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class EnemyManager : MonoBehaviour
 {
-
+	//test
     public float maxHealth;
     [HideInInspector]
     public float currentHealth;
