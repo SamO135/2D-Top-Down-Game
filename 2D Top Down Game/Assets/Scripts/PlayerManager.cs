@@ -48,13 +48,13 @@ public class PlayerManager : MonoBehaviour
         {
             animator.SetFloat("Facing", 1f);
             //transform.localScale = new Vector3(1f, 1f, 1f);
-            FlipDamageCircle(1);
+            FlipDamageCircle(Direction.right);
         }
         else if (movement.x < 0)
         {
             animator.SetFloat("Facing", -1f);
             //transform.localScale = new Vector3(-1f, 1f, 1f);
-            FlipDamageCircle(-1);
+            FlipDamageCircle(Direction.left);
         }
 
         // Counts down the invincibility time after getting hit.
@@ -112,11 +112,27 @@ public class PlayerManager : MonoBehaviour
         SceneManager.LoadScene("GameScene");
     }
 
-    private void FlipDamageCircle(int direction)
+    
+    private void FlipDamageCircle(Direction dir)
     {
+        int d;
+        if (dir == Direction.left)
+        {
+            d = 1;
+        }
+        else
+        {
+            d = -1;
+        }
         damageCirclePos.transform.position = new Vector2 
-            (transform.position.x + damageCircleOffset.x * -direction, transform.position.y - damageCircleOffset.y);
+            (transform.position.x + damageCircleOffset.x * -d, transform.position.y - damageCircleOffset.y);
 
     }
 
 }
+
+public enum Direction
+    {
+        left,
+        right
+    }
